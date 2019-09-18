@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".bai3.Bai3Activity">
-
-    <EditText
-        android:id="@+id/edt_nhap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    tools:context=".bai2.Bai2Activity">
 
     <Button
-        android:id="@+id/btn_timvana"
+        android:onClick="startService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="tìm kiếm vần A" />
+        android:text="start Service" />
 
     <Button
-        android:id="@+id/btn_timvanb"
+        android:onClick="stopService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="tìm kiếm vần b" />
+        android:text="stop Service" />
 
 </LinearLayout>
