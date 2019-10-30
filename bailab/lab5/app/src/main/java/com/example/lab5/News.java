@@ -1,13 +1,13 @@
 package com.example.lab5;
 
-public class New {
+public class News {
     private long id;
     private String title;
     private String desc;
     private String url;
     private String img;
 
-    public New(long id, String title, String desc, String url, String img, String date) {
+    public News(long id, String title, String desc, String url, String img, String date) {
         this.id = id;
         this.title = title;
         this.desc = desc;

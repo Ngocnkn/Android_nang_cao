@@ -38,10 +38,9 @@ public class Bai1Activity extends AppCompatActivity {
     }
 
     public void loadContact(View view) {
-        if (ContextCompat.checkSelfPermission(Bai1Activity.this, Manifest.permission.READ_CONTACTS)
-                != PackageManager.PERMISSION_GRANTED){
-//            Toast.makeText(this,"Chua co quyen",Toast.LENGTH_SHORT).show();
+        if (ContextCompat.checkSelfPermission(Bai1Activity.this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(Bai1Activity.this,
+
                     new String[]{Manifest.permission.READ_CONTACTS},
                     888);
         }else{
@@ -65,12 +64,12 @@ public class Bai1Activity extends AppCompatActivity {
                     while (phones.moveToNext()) {
                         String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                         Log.i("Number", phoneNumber);
-                        data =id+" - "+name+" - " +phoneNumber;
+                        data =name+" - " +phoneNumber;
                         list.add(data);
                     }
 
                     phones.close();
-                    ListView listView=findViewById(R.id.tvContacts);
+                    ListView listView=findViewById(R.id.abc);
                     ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
                     listView.setAdapter(adapter);
                 }

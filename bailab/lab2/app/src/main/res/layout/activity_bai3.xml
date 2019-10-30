@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Bai3">
 
@@ -13,7 +12,7 @@
     <EditText
         android:maxLength="9"
         android:id="@+id/edittext"
-        android:layout_width="110dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="98dp" />

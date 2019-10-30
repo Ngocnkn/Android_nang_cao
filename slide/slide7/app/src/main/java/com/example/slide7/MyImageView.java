@@ -1,4 +1,6 @@
 package com.example.slide7;
 
-public class MyImageView {
+import android.widget.ImageView;
+
+public class MyImageView{
 }

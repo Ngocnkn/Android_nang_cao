@@ -8,13 +8,13 @@
     tools:context=".bai2.Bai2Activity">
 
     <Button
-        android:onClick="startService"
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="start Service" />
 
     <Button
-        android:onClick="stopService"
+        android:onClick="stopServicee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="stop Service" />

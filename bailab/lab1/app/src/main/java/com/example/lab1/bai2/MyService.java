@@ -1,4 +1,4 @@
-package com.example.androidnangcao;
+package com.example.lab1.bai2;
 
 import android.app.Service;
 import android.content.Intent;
@@ -66,7 +66,6 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }

@@ -22,7 +22,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Bai2Activity extends AppCompatActivity {
 
@@ -44,7 +47,6 @@ public class Bai2Activity extends AppCompatActivity {
     public void loadBookmark(View view) {
         if (ContextCompat.checkSelfPermission(Bai2Activity.this, Manifest.permission.READ_CALL_LOG)
                 != PackageManager.PERMISSION_GRANTED) {
-//            Toast.makeText(this,"Chua co quyen",Toast.LENGTH_SHORT).show();
             ActivityCompat.requestPermissions(Bai2Activity.this,
                     new String[]{Manifest.permission.READ_CALL_LOG},
                     888);
@@ -55,45 +57,36 @@ public class Bai2Activity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void run() {
-        ArrayList<String> list=new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         String[] projection = new String[]{
-                CallLog.Calls.DATE,
+                CallLog.Calls.CACHED_NAME,
                 CallLog.Calls.NUMBER,
                 CallLog.Calls.DURATION
         };
         if (checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    Activity#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
+
             return;
         }
-        Cursor c = getContentResolver().query(
-                CallLog.Calls.CONTENT_URI,
-                projection,
+
+        Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, projection,
                 CallLog.Calls.DURATION + "<?", new String[]{"30"},
                 CallLog.Calls.DATE + " Asc");
         c.moveToFirst();
-        String s="";
-        while(c.isAfterLast()==false){
-            String a=c.getString(c.getColumnIndex(CallLog.Calls.DURATION));
-            String b=c.getString(c.getColumnIndex(CallLog.Calls.DATE));
-            String d=c.getString(c.getColumnIndex(CallLog.Calls.NUMBER));
-            for(int i=0;i<c.getColumnCount();i++){
-                s=b+"-"+d+"-"+a;
+        String s = "";
+        while (c.isAfterLast() == false) {
+            String b = c.getString(c.getColumnIndex(CallLog.Calls.CACHED_NAME));
+            String d = c.getString(c.getColumnIndex(CallLog.Calls.NUMBER));
+            for (int i = 0; i < c.getColumnCount(); i++) {
+                s = b +  " - " + d  ;
             }
-//            s+="";
+
             list.add(s);
             c.moveToNext();
         }
         c.close();
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
-        ListView listView=findViewById(R.id.lvCalllog);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+        ListView listView = findViewById(R.id.lvCalllog);
         listView.setAdapter(adapter);
-//        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
-        }
+    }
 
 }

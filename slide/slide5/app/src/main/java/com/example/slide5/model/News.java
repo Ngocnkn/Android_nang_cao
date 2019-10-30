@@ -1,4 +1,4 @@
-package vn.edu.poly.demoxmlparser.model;
+package com.example.slide5.model;
 
 public class News {
 
